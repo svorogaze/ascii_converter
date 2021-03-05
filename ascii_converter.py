@@ -43,15 +43,15 @@ img = cv2.imread(image, cv2.IMREAD_COLOR)
 height, width, _ = img.shape
 img = cv2.resize(img, dsize=(width // SIZE_OF_FONT, height // SIZE_OF_FONT))
 
-mode = input('black and white ascii or color ascii?\n')
+mode = input('Please type 1 for black and white mode and 2 for color mode\n')
 
 pygame.init()
 myfont = pygame.font.SysFont('Courier', SIZE_OF_FONT)
 screen = pygame.display.set_mode((width, height))
 
-if mode.lower() == 'black and white':
+if mode.lower() == '1':
     to_ascii()
-elif mode.lower() == 'color':
+elif mode.lower() == '2':
     to_color_ascii()
 
 while True:
