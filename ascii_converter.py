@@ -33,7 +33,7 @@ def to_color_ascii():
 
 string_of_chars = ' .",:;!~+-xmo*#W&8@'
 len_of_string = len(string_of_chars)
-SIZE_OF_FONT = 7
+SIZE_OF_FONT = 4
 
 root = tkinter.Tk()
 image = tkinter.filedialog.askopenfilename()
@@ -43,7 +43,7 @@ img = cv2.imread(image, cv2.IMREAD_COLOR)
 height, width, _ = img.shape
 img = cv2.resize(img, dsize=(width // SIZE_OF_FONT, height // SIZE_OF_FONT))
 
-mode = input('Please type 1 for black and white mode and 2 for color mode\n')
+mode = input('Please, type 1 for black and white mode and 2 for color mode\n')
 
 pygame.init()
 myfont = pygame.font.SysFont('Courier', SIZE_OF_FONT)
@@ -62,5 +62,5 @@ while True:
         if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
             three_d_array = pygame.surfarray.array3d(screen)
             output = cv2.transpose(three_d_array)
-            output = cv2.cvtColor(output,cv2.COLOR_RGB2BGR)
-            cv2.imwrite('output.png',output)
+            output = cv2.cvtColor(output, cv2.COLOR_RGB2BGR)
+            cv2.imwrite('output.png', output)
