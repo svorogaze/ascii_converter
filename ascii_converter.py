@@ -9,11 +9,11 @@ import numba
 @numba.njit
 def rgb_to_num_of_char(r, g, b):
     brightness = 0.212671 * r + 0.71516 * g + 0.072169 * b
-    return round((len_of_string - 1) * brightness / 255)
+    return round((LEN_OF_CHARS_STRING - 1) * brightness / 255)
 
 
 def to_ascii():
-    rendered_chrs = [myfont.render(char, False, (255, 255, 255)) for char in string_of_chars]
+    rendered_chrs = [myfont.render(char, False, (255, 255, 255)) for char in STRING_OF_CHARS]
     for y in range(0, img.shape[0]):
         for x in range(0, img.shape[1]):
             b, g, r = img[y][x]
@@ -26,13 +26,13 @@ def to_color_ascii():
     for y in range(0, img.shape[0]):
         for x in range(0, img.shape[1]):
             b, g, r = img[y][x]
-            text_surface = myfont.render(string_of_chars[rgb_to_num_of_char(r, g, b)], False, (r, g, b))
+            text_surface = myfont.render(STRING_OF_CHARS[rgb_to_num_of_char(r, g, b)], False, (r, g, b))
             screen.blit(text_surface, (x * SIZE_OF_FONT, y * SIZE_OF_FONT))
             pygame.display.update()
 
 
-string_of_chars = ' .",:;!~+-xmo*#W&8@'
-len_of_string = len(string_of_chars)
+STRING_OF_CHARS = ' .",:;!~+-xmo*#W&8@'
+LEN_OF_CHARS_STRING = len(STRING_OF_CHARS)
 SIZE_OF_FONT = 4
 
 root = tkinter.Tk()
