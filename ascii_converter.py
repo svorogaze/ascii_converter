@@ -62,6 +62,6 @@ while True:
         if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
             three_d_array = pygame.surfarray.array3d(screen)
             output = cv2.transpose(three_d_array)
-            if mode == 'color':
-                output = cv2.cvtColor(output, cv2.COLOR_RGB2BGR)
+            if mode == '2':
+                output = cv2.cvtColor(output, cv2.COLOR_BGR2RGB)
             cv2.imwrite('output.png', output)
