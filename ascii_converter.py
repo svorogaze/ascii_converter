@@ -28,7 +28,7 @@ def to_color_ascii():
             b, g, r = img[y][x]
             text_surface = myfont.render(STRING_OF_CHARS[rgb_to_num_of_char(r, g, b)], False, (r, g, b))
             screen.blit(text_surface, (x * SIZE_OF_FONT, y * SIZE_OF_FONT))
-            pygame.display.update()
+    pygame.display.update()
 
 
 STRING_OF_CHARS = ' .",:;!~+-xmo*#W&8@'
